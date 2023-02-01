@@ -1,53 +1,20 @@
-﻿Console.WriteLine("Seja Bem Vindo a Calculadora");
-//Receber dois valores
-//Solicitar os dois valores para o usuario digitar
+﻿using CursoCSharpTesteCalculadoraConsoleApp;
 
-Console.WriteLine("Digite o primeiro valor:");
-string? primeiroValorString = Console.ReadLine();
-double primeiroValor = Convert.ToDouble(primeiroValorString);
+Console.WriteLine("Seja Bem Vindo a Calculadora");
 
-Console.WriteLine("Digite o segundo valor:");
-string? segundoValorString = Console.ReadLine();
-double segundoValor = Convert.ToDouble(segundoValorString);
-
-//Dar opcoes de calculo
-Console.WriteLine("Selecione a operacao:");
-Console.WriteLine("+");
-Console.WriteLine("-");
-Console.WriteLine("*");
-Console.WriteLine("/");
-
-var operacaoSelecionada = Console.ReadLine();
-
-//Realizar o calculo
-
-double resultadoOperacao;
-switch (operacaoSelecionada)
+try
 {
-    case "+":
-        resultadoOperacao = primeiroValor + segundoValor;
-        Console.WriteLine($"Resultado da operacao: {resultadoOperacao}");
-        break;
-    case "-":
-        resultadoOperacao = primeiroValor - segundoValor;
-        Console.WriteLine($"Resultado da operacao: {resultadoOperacao}");
-        break;
-    case "*":
-        resultadoOperacao = primeiroValor * segundoValor;
-        Console.WriteLine($"Resultado da operacao: {resultadoOperacao}");
-        break;
-    case "/":
-        resultadoOperacao = primeiroValor / segundoValor;
-        Console.WriteLine($"Resultado da operacao: {resultadoOperacao}");
-        break;
-    default:
-        Console.WriteLine("Operacao invalida!");
-        break;
+    Calculadora calculadora = new Calculadora();
+    calculadora.Executar();
+}
+catch (Exception ex)
+{
+    Console.Clear();
+    Console.WriteLine("Deu erro, nao consegui realizar o processo!!!");
 }
 
 
-//Exibir o resultado
-//Finalizar a aplicacao
-
+Console.WriteLine();
+Console.WriteLine("Ate logo!!");
 
 Console.ReadKey();
