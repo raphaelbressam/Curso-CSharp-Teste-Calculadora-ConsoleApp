@@ -1,53 +1,59 @@
 ﻿Console.WriteLine("Seja Bem Vindo a Calculadora");
-//Receber dois valores
-//Solicitar os dois valores para o usuario digitar
 
-Console.WriteLine("Digite o primeiro valor:");
-string? primeiroValorString = Console.ReadLine();
-double primeiroValor = Convert.ToDouble(primeiroValorString);
-
-Console.WriteLine("Digite o segundo valor:");
-string? segundoValorString = Console.ReadLine();
-double segundoValor = Convert.ToDouble(segundoValorString);
-
-//Dar opcoes de calculo
-Console.WriteLine("Selecione a operacao:");
-Console.WriteLine("+");
-Console.WriteLine("-");
-Console.WriteLine("*");
-Console.WriteLine("/");
-
-var operacaoSelecionada = Console.ReadLine();
-
-//Realizar o calculo
-
-double resultadoOperacao;
-switch (operacaoSelecionada)
+do
 {
-    case "+":
-        resultadoOperacao = primeiroValor + segundoValor;
-        Console.WriteLine($"Resultado da operacao: {resultadoOperacao}");
-        break;
-    case "-":
-        resultadoOperacao = primeiroValor - segundoValor;
-        Console.WriteLine($"Resultado da operacao: {resultadoOperacao}");
-        break;
-    case "*":
-        resultadoOperacao = primeiroValor * segundoValor;
-        Console.WriteLine($"Resultado da operacao: {resultadoOperacao}");
-        break;
-    case "/":
-        resultadoOperacao = primeiroValor / segundoValor;
-        Console.WriteLine($"Resultado da operacao: {resultadoOperacao}");
-        break;
-    default:
-        Console.WriteLine("Operacao invalida!");
-        break;
-}
+    Console.Clear();
+    Console.WriteLine("Digite o primeiro valor:");
+    string? primeiroValorString = Console.ReadLine();
+    double primeiroValor = Convert.ToDouble(primeiroValorString);
 
+    Console.WriteLine("Digite o segundo valor:");
+    string? segundoValorString = Console.ReadLine();
+    double segundoValor = Convert.ToDouble(segundoValorString);
 
-//Exibir o resultado
-//Finalizar a aplicacao
+    Console.WriteLine("Selecione a operacao:");
+    Console.WriteLine("+");
+    Console.WriteLine("-");
+    Console.WriteLine("*");
+    Console.WriteLine("/");
 
+    var operacaoSelecionada = Console.ReadLine();
+
+    double? resultadoOperacao;
+    switch (operacaoSelecionada)
+    {
+        case "+":
+            resultadoOperacao = primeiroValor + segundoValor;
+            break;
+        case "-":
+            resultadoOperacao = primeiroValor - segundoValor;
+            break;
+        case "*":
+            resultadoOperacao = primeiroValor * segundoValor;
+            break;
+        case "/":
+            resultadoOperacao = primeiroValor / segundoValor;
+            break;
+        default:
+            resultadoOperacao = null;
+            break;
+    }
+
+    Console.WriteLine();
+    var mensagem = resultadoOperacao.HasValue ? $"Resultado da operacao: {resultadoOperacao}" : "Operacao invalida!";
+    Console.WriteLine(mensagem);
+
+    //if (resultadoOperacao.HasValue)
+    //    Console.WriteLine($"Resultado da operacao: {resultadoOperacao}");
+    //else
+    //    Console.WriteLine("Operacao invalida!");
+
+    Console.WriteLine();
+    Console.WriteLine("Deseja realizar outra operacao?");
+    Console.WriteLine("(S) Sim (N) Nao");
+} while (Console.ReadKey().Key == ConsoleKey.S);
+
+Console.WriteLine();
+Console.WriteLine("Ate logo!!");
 
 Console.ReadKey();
